@@ -1,6 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
   padding: 0;
+}
+h1{
+  font-family: 'Heebo', sans-serif;
+  font-weight: 600;
+  position:absolute;
 }
 canvas {
   display: block;
