@@ -1,6 +1,2 @@
-# ThreeJs-Vite-BoilerPlate
-ThreeJS with Vite bundler
+# Portfolio
 
-Start your new THREE JS app with Beginners Setup 
-and
-Vite bundler for Fast Development 
