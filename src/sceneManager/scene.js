@@ -11,7 +11,7 @@ export default class SceneManager {
 
     _init() {
         const scene = new THREE.Scene();
-        scene.background = new THREE.Color(0xFF4444);
+        scene.background = new THREE.Color(0xF4976C);
 
         const renderer = new THREE.WebGLRenderer({ canvas: this.canvas, antialias: true, alpha: true });
         renderer.setSize(window.innerWidth, window.innerHeight, false);
@@ -28,6 +28,7 @@ export default class SceneManager {
         this.scene = scene;
         this.renderer = renderer;
         this.camera = camera;
+
         //init stats
         this.stats = new Stats();
     }
