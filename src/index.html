@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="Logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -10,124 +10,354 @@
       href="https://fonts.googleapis.com/css2?family=Heebo&display=swap"
       rel="stylesheet"
     />
-    <title>Vite App</title>
+    <title>Portfollio</title>
   </head>
-  <body>
-    <div class="container mx-auto px-10 absolute">
-      <nav class="py-10">
-        <ul class="flex justify-end space-x-10 font-normal font-Heebo">
-          <li class="cursor-pointer">About</li>
-          <li class="cursor-pointer">Work</li>
-          <li class="cursor-pointer">Experience</li>
-          <li class="cursor-pointer">Contact</li>
-          <li>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 cursor-pointer"
-              viewBox="0 0 20 20"
-              fill="currentColor"
+  <body style="background-color: #101119">
+    <!-- SIDE NAV -->
+    <aside
+      class="
+        hidden
+        bg-black
+        z-10
+        text-white
+        fixed
+        h-full
+        w-full
+        pt-20
+        sm:hidden
+      "
+    >
+      <div class="flex justify-center pb-10" onclick="toggleSidebar()">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </div>
+      <ul class="flex flex-col justify-center w-full font-normal font-Heebo">
+        <li
+          class="flex justify-center cursor-pointer px-3 py-5 w-full text-5xl"
+        >
+          Work
+        </li>
+        <li
+          class="flex justify-center cursor-pointer px-3 py-5 w-full text-5xl"
+        >
+          Experience
+        </li>
+        <li
+          class="flex justify-center cursor-pointer px-3 py-5 w-full text-5xl"
+        >
+          Contact
+        </li>
+      </ul>
+    </aside>
+    <canvas class="w-full h-full absolute z-0" id="canvas"></canvas>
+    <div class="px-10 relative h-screen w-full z-10 text-white sm:px-20">
+      <nav class="flex justify-between py-10 sm:py-15">
+        <div class="hidden sm:flex">
+          <ul
+            class="
+              hidden
+              sm:flex sm:fixed
+              flex-col
+              space-y-3
+              font-normal font-Heebo
+            "
+          >
+            <li
+              class="
+                cursor-pointer
+                hover:text-gray-300
+                hover:border-l-red-700
+                hover:border-l-3
+                hover:px-2
+              "
             >
-              <path
-                fill-rule="evenodd"
-                d="M3 7a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 13a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                clip-rule="evenodd"
-              />
-            </svg>
-          </li>
-          <li>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 cursor-pointer"
-              viewBox="0 0 20 20"
-              fill="currentColor"
+              Works
+            </li>
+            <li
+              class="
+                cursor-pointer
+                hover:text-gray-300
+                hover:border-l-red-700
+                hover:border-l-3
+                hover:px-2
+              "
             >
-              <path
-                fill-rule="evenodd"
-                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                clip-rule="evenodd"
-              />
-            </svg>
-          </li>
-        </ul>
-      </nav>
-      <aside class="hidden">
-        <div class="bg-blue-400">
-          <ul class="flex justify-end space-x-10 font-normal font-Heebo">
-            <li class="cursor-pointer">About</li>
-            <li class="cursor-pointer">Work</li>
-            <li class="cursor-pointer">Experience</li>
-            <li class="cursor-pointer">Contact</li>
+              Experience
+            </li>
+            <li
+              class="
+                cursor-pointer
+                hover:text-gray-300
+                hover:border-l-red-700
+                hover:border-l-3
+                hover:px-2
+              "
+            >
+              Skills
+            </li>
+            <li
+              class="
+                cursor-pointer
+                hover:text-gray-300
+                hover:border-l-red-700
+                hover:border-l-3
+                hover:px-2
+              "
+            >
+              Contact
+            </li>
           </ul>
         </div>
-      </aside>
-      <div class="container my-20 mx-10">
-        <h1 class="font-Heebo text-2xl font-medium">Hi I'm, Rodener Dajes</h1>
-        <h1 class="py-2 font-Heebo text-5xl font-medium capitalize">
-          I build things for the web.
-        </h1>
-        <p class="pb-10 w-80">
-          I'm a fullstack dev based in the philippines who want to specialize
-          building a interactive web apps.
-        </p>
-        <button
-          class="
-            bg-blue-700
-            hover:bg-blue-900
-            text-white
-            font-bold
-            py-4
-            px-4
-            rounded
-          "
-        >
-          Get In Touch
-        </button>
-      </div>
-      <div class="mx-10 mt-20">
-        <ul class="flex space-x-5">
-          <li>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 cursor-pointer"
-              role="img"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              stroke="none"
-              strokeWidth="5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <title>LinkedIn</title>
-              <path
-                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
-              ></path>
-              <rect x="2" y="9" width="4" height="12"></rect>
-              <circle cx="4" cy="4" r="2"></circle>
-            </svg>
-          </li>
-          <li>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 cursor-pointer"
-              role="img"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              stroke="none"
-              strokeWidth="3"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <title>GitHub</title>
-              <path
-                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-              ></path>
-            </svg>
-          </li>
-        </ul>
+
+        <div class="pr-10">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="sm:fixed"
+            width="40"
+            height="40"
+            viewBox="0 0 622 631"
+          >
+            <defs>
+              <style>
+                .cls-1 {
+                  fill: #394a59;
+                }
+
+                .cls-1,
+                .cls-2 {
+                  fill-rule: evenodd;
+                }
+
+                .cls-2 {
+                  fill: #1a2732;
+                }
+              </style>
+            </defs>
+            <path
+              class="cls-1"
+              d="M597,448l-19,51V930l147-1,24-28V601Z"
+              transform="translate(-578 -299)"
+            />
+            <path
+              class="cls-2"
+              d="M600,450L750,600V900H600V450Z"
+              transform="translate(-578 -299)"
+            />
+            <path
+              class="cls-1"
+              d="M599,302l-16,42L728,489h273L937,692l236,233,26-24,1-602Z"
+              transform="translate(-578 -299)"
+            />
+            <path
+              class="cls-2"
+              d="M600,300L750,450h300L975,675l225,225V299Z"
+              transform="translate(-578 -299)"
+            />
+            <path
+              class="cls-1"
+              d="M824,674l-22,40-3,214,225,2,24-27Z"
+              transform="translate(-578 -299)"
+            />
+            <path
+              class="cls-2"
+              d="M825,675V900h225"
+              transform="translate(-578 -299)"
+            />
+          </svg>
+        </div>
+        <div class="sm:hidden flex items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 cursor-pointer"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            onclick="toggleSidebar()"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M3 7a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 13a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </nav>
+
+      <!-- front -->
+      <div class="my-10 sm:mx-30 font-Heebo">
+        <div class="flex sm:justify-between">
+          <div class="flex flex-col">
+            <p class="text-sm py-3">Hi, I'm Rodener Dajes</p>
+            <p class="text-4xl">Fullstack Web Developer</p>
+          </div>
+        </div>
       </div>
     </div>
-    <script type="module"></script>
-    <canvas id="canvas"></canvas>
+
+    <!-- Contact -->
+    <div class="pt-10 h-full w-full font-Heebo">
+      <div class="bg-gray-300 pb-20 pt-10 px-10">
+        <div class="flex flex-col justify-center items-center content-center">
+          <div class="text-3xl font-black py-5">Want to work with me?</div>
+          <p class="text-md font-semibold py-2">
+            Feel free to contact me using the below email address.
+          </p>
+          <p class="text-xl font-semibold underline py-5">
+            dajesrodener8@gmail.com
+          </p>
+          <div class="py-2">
+            <ul class="flex space-x-5">
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/rodener-dajes-92168b1b2/"
+                  target="_blank"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4 cursor-pointer sm:h-5 sm:w-5"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    stroke="none"
+                    strokeWidth="5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <title>LinkedIn</title>
+                    <path
+                      d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                    ></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/InfoSysRodener" target="_blank">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4 cursor-pointer sm:h-5 sm:w-5"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    stroke="none"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <title>GitHub</title>
+                    <path
+                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                    ></path>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <div
+      class="-mt-5 flex justify-center content-center h-full w-full font-Heebo"
+    >
+      <div class="flex flex-col justify-center items-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="40"
+          height="40"
+          viewBox="0 0 622 631"
+        >
+          <defs>
+            <style>
+              .cls-1 {
+                fill: #394a59;
+              }
+
+              .cls-1,
+              .cls-2 {
+                fill-rule: evenodd;
+              }
+
+              .cls-2 {
+                fill: #1a2732;
+              }
+            </style>
+          </defs>
+          <path
+            class="cls-1"
+            d="M597,448l-19,51V930l147-1,24-28V601Z"
+            transform="translate(-578 -299)"
+          />
+          <path
+            class="cls-2"
+            d="M600,450L750,600V900H600V450Z"
+            transform="translate(-578 -299)"
+          />
+          <path
+            class="cls-1"
+            d="M599,302l-16,42L728,489h273L937,692l236,233,26-24,1-602Z"
+            transform="translate(-578 -299)"
+          />
+          <path
+            class="cls-2"
+            d="M600,300L750,450h300L975,675l225,225V299Z"
+            transform="translate(-578 -299)"
+          />
+          <path
+            class="cls-1"
+            d="M824,674l-22,40-3,214,225,2,24-27Z"
+            transform="translate(-578 -299)"
+          />
+          <path
+            class="cls-2"
+            d="M825,675V900h225"
+            transform="translate(-578 -299)"
+          />
+        </svg>
+        <p class="capitalize text-white py-3">rodener dajes &copy; 2021</p>
+      </div>
+    </div>
+
+    <script>
+      // const scrollable = document.querySelector(".scrollable");
+      // const works = document.querySelector(".works");
+
+      // let current = 0;
+      // let target = 0;
+      // let ease = 0.025;
+
+      // function lerp(start, end, t) {
+      //   return start * (1 - t) + end * t;
+      // }
+
+      // function init() {
+      //   works.style.height = `${scrollable.getBoundingClientRect().height}px`;
+      // }
+
+      // function smoothScroll() {
+      //   target = window.scrollY;
+      //   current = lerp(current, target, ease);
+      //   scrollable.style.transform = `translate3d(0, ${-current}px,0)`;
+      //   requestAnimationFrame(smoothScroll);
+      // }
+
+      // init();
+      // smoothScroll();
+      function toggleSidebar() {
+        document.getElementsByTagName("aside")[0].classList.toggle("hidden");
+      }
+    </script>
+
     <script type="module" src="/main.js"></script>
   </body>
 </html>
